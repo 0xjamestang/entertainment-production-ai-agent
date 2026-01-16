@@ -1,247 +1,192 @@
-# Ralph Wiggum Autonomous Loop System + Entertainment Production Agent
+# 🎬 Entertainment Production AI Agent
+
+**An Autonomous, Production-Ready AI System for Short Drama & Short-Form Video Creation**
+
+---
 
 ## Overview
-A production-ready autonomous agent system combining:
-1. **Ralph Wiggum Loop**: Autonomous iteration framework with test-driven development and self-correction
-2. **Entertainment Production Agent**: Complete short-form video production pipeline from script to post-production advisory
 
-## Current Status
-**✅ PRODUCTION READY - All 114 Tests Passing**
+**Entertainment Production AI Agent** is a production-grade, autonomous AI system designed for the **short drama and short-form video industry**.
 
-Both systems are fully implemented, tested, and operational.
+Unlike generic script-writing tools, this system covers the **entire entertainment production workflow** — from script generation to production planning, visual execution, and post-production guidance — with **engineering-level reliability** and **test-driven guarantees**.
 
-## System Architecture
+> **It doesn’t just write stories.
+> It thinks like a production team.**
 
-### Ralph Wiggum Autonomous Loop
-File-based autonomous iteration system that continuously works toward goals, enforces testing, and self-corrects.
+---
 
-**Core Components:**
-- `loop/state.md` - Single source of truth for loop state
-- `loop/agent-prompt.md` - Output structure and behavior rules
-- `loop/last_output.md` - Most recent iteration report
-- `src/loop_controller.py` - Loop orchestration and mode detection
-- `src/state_parser.py` - State file parsing
-- `src/state_writer.py` - Atomic state updates
-- `src/report_generator.py` - Iteration report generation
+## What This Agent Does
 
-**Operating Modes:**
-- **Engineering Mode**: Make incremental changes, run tests, fix failures, loop until green
-- **Creative Mode**: Execute creative tasks when all tests pass
-- **Blocked Mode**: Stop when critical issues prevent progress
+The agent transforms a high-level creative brief into a **complete, ready-to-shoot production package**.
 
-### Entertainment Production Agent
-Complete workflow for short-form video production (TikTok, YouTube Shorts, etc.)
+### ✍️ Script Generation & Polishing
 
-**Pipeline Stages:**
-1. **Script Generation** (`src/models/script.py`, `src/generators/script_generator.py`)
-   - Genre-aware script creation
-   - Platform-specific pacing (hook in first 3-5 seconds)
-   - Character, scene, and dialogue modeling
-   - Production cost flagging (night scenes, VFX, extras)
+* Genre-aware and platform-optimized scripts
+* Strong hooks within the first 3–5 seconds
+* Natural, conversational dialogue
+* Shootability and cost-awareness validation
 
-2. **Script Breakdown** (`src/models/breakdown.py`, `src/generators/breakdown_generator.py`)
-   - Production element extraction (cast, props, wardrobe, locations)
-   - Setup time estimation
-   - CSV and JSON export
-   - 1:1 scene-to-breakdown mapping validation
+### 🎥 Production Breakdown
 
-3. **Storyboard & Shot List** (`src/models/storyboard.py`, `src/generators/storyboard_generator.py`)
-   - Shot-by-shot visual planning
-   - Camera angles and movements
-   - Duration distribution
-   - Spatial continuity checking
-   - Markdown and CSV export
+* Automatic script breakdown into:
 
-4. **Production Advisory** (`src/models/advisory.py`, `src/generators/advisory_generator.py`)
-   - Continuity risk identification
-   - Audio capture recommendations
-   - Coverage suggestions
-   - Actionable production guidance
+  * Characters
+  * Locations (INT/EXT, Day/Night)
+  * Props, wardrobe, makeup
+  * Special requirements (stunts, VFX, vehicles)
+* Early cost and feasibility flags
 
-5. **Post-Production Advisory**
-   - Editing rhythm and pacing
-   - Platform-specific optimization (TikTok, YouTube Shorts)
-   - Common revision pitfalls
-   - Sound, color, and subtitle guidelines
+### 🎞 Storyboard & Shot List
 
-**Workflow Orchestration:**
-- `src/workflow/entertainment_workflow.py` - End-to-end pipeline execution
-- Validation at each stage
-- Graceful error handling
-- Complete file output package
+* Shot-by-shot storyboard generation
+* Detailed shot lists with:
 
-## Quick Start
+  * Camera framing and movement
+  * Visual continuity checks
+  * Duration estimates optimized for short-form pacing
 
-### Run Demo Production
+### 🎧 Production & Post-Production Advisory
+
+* Actionable filming guidance:
+
+  * Continuity risks
+  * Coverage and B-roll suggestions
+  * Audio capture best practices
+* Editing and delivery guidance:
+
+  * Platform-specific pacing
+  * Subtitle and sound recommendations
+  * Common revision pitfalls
+
+---
+
+## How It Works
+
+The system is built around an **autonomous development and execution loop** (Ralph Wiggum Loop):
+
+```
+Implement → Test → Validate → Iterate
+```
+
+* Every component is fully tested before progression
+* Any failure triggers an automatic debug–fix–retest cycle
+* No feature advances while tests are failing
+* All outputs are generated as structured, production-ready assets
+
+**Current Test Coverage:**
+✅ 114/114 tests passing (100%)
+
+---
+
+## Example Output
+
+For a sample prompt like:
+
+> *“Generate a 45-second romantic comedy short drama for TikTok, single location, two characters.”*
+
+The system produces:
+
+* Script with hook, scenes, dialogue, and actions
+* Production breakdown (CSV / JSON)
+* Storyboard with shot-by-shot planning
+* Shot list with camera specifications
+* Production notes (continuity & coverage)
+* Post-production notes (editing & platform delivery)
+
+All outputs are validated and ready for real-world production use.
+
+---
+
+## Project Structure
+
+```text
+.
+├─ .kiro/                  # Agent specs, tasks, and loop configuration
+├─ src/                    # Core system logic
+│  ├─ generators/          # Script, breakdown, storyboard, advisory generators
+│  ├─ models/              # Strongly-typed domain models
+│  ├─ workflow/            # End-to-end production orchestration
+│  └─ loop_controller.py   # Autonomous loop engine
+├─ tests/                  # Comprehensive test suite
+├─ loop/                   # System state & agent prompts
+├─ requirements.txt
+├─ run_loop.py
+└─ README.md
+```
+
+---
+
+## Getting Started
+
+### Requirements
+
+* Python 3.10+
+* Git
+* (Optional) Kiro Agent Runtime
+
+### Install Dependencies
+
 ```bash
-py demo_production.py
+pip install -r requirements.txt
 ```
 
-This generates a complete production package:
-- Script (JSON)
-- Breakdown (JSON + CSV)
-- Storyboard (Markdown)
-- Shot List (CSV)
-- Production Notes (Markdown)
-- Post-Production Notes (Markdown)
+### Run a Demo Production
 
-### Run Tests
 ```bash
-# All tests
-py -m pytest tests/ -v
-
-# Specific component
-py -m pytest tests/workflow/ -v
-py -m pytest tests/generators/ -v
-py -m pytest tests/models/ -v
+python demo_production.py
 ```
 
-### Execute Autonomous Loop
+### Run the Autonomous Loop
+
 ```bash
-py run_loop.py
+python run_loop.py
 ```
 
-## Test Coverage
+---
 
-**114 Tests - 100% Passing**
+## Who This Is For
 
-- Loop System: 29 tests
-  - State parsing: 7 tests
-  - Report generation: 6 tests
-  - State writing: 6 tests
-  - Loop controller: 10 tests
+* 🎬 Short drama studios
+* 📱 Short-form video creators
+* 🎥 Production teams and agencies
+* 🧠 Platforms building AI-assisted content pipelines
+* 🚀 Teams exploring industrialized content creation
 
-- Script Generation: 23 tests
-  - Script models: 15 tests
-  - Script generator: 8 tests
+---
 
-- Breakdown: 21 tests
-  - Breakdown models: 11 tests
-  - Breakdown generator: 10 tests
+## Design Philosophy
 
-- Storyboard: 16 tests
-  - Storyboard models: 8 tests
-  - Storyboard generator: 8 tests
+* **Production-first**, not demo-first
+* **Test-driven creativity**
+* **Autonomous iteration over manual prompting**
+* **Structured outputs over free-form text**
+* **Engineering discipline applied to creative workflows**
 
-- Advisory: 19 tests
-  - Advisory models: 10 tests
-  - Advisory generators: 9 tests
+---
 
-- Workflow: 6 tests
-  - End-to-end integration: 6 tests
+## Roadmap
 
-## File Structure
+* CLI & API interfaces
+* Multi-agent roles (Writer / Director / Producer)
+* Video generation & editing tool integrations
+* Asset management & storage backends
+* SaaS-ready deployment architecture
 
-```
-.kiro/
-├── specs/
-│   ├── ralph-wiggum-loop/          # Loop system spec
-│   │   ├── requirements.md
-│   │   ├── design.md
-│   │   └── tasks.md
-│   └── entertainment-production/    # Production agent spec
-│       ├── requirements.md
-│       ├── design.md
-│       └── tasks.md
-├── loop/
-│   ├── state.md                     # Loop state (single source of truth)
-│   ├── agent-prompt.md              # Agent behavior rules
-│   └── last_output.md               # Latest iteration report
-├── src/
-│   ├── loop_controller.py           # Loop orchestration
-│   ├── state_parser.py              # State file parsing
-│   ├── state_writer.py              # Atomic state updates
-│   ├── report_generator.py          # Report generation
-│   ├── models/                      # Data models
-│   │   ├── script.py
-│   │   ├── breakdown.py
-│   │   ├── storyboard.py
-│   │   └── advisory.py
-│   ├── generators/                  # Content generators
-│   │   ├── script_generator.py
-│   │   ├── breakdown_generator.py
-│   │   ├── storyboard_generator.py
-│   │   └── advisory_generator.py
-│   └── workflow/                    # Workflow orchestration
-│       └── entertainment_workflow.py
-├── tests/                           # Complete test suite
-├── demo_production.py               # Demo script
-└── run_loop.py                      # Loop CLI runner
-```
-
-## User Stories Implemented
-
-### Ralph Wiggum Loop
-- ✅ US-1: State Management
-- ✅ US-2: Iteration Execution
-- ✅ US-3: Test Enforcement
-- ✅ US-4: Report Generation
-- ✅ US-5: Mode Detection
-
-### Entertainment Production
-- ✅ US-1: Script Authoring & Polishing
-- ✅ US-2: Script Breakdown for Production
-- ✅ US-3: Storyboard & Shot List Generation
-- ✅ US-4: Production & Post-production Advisory
-- ✅ US-5: Autonomous Loop & Engineering Quality
-
-## Correctness Properties
-
-Both systems implement formal correctness properties validated through property-based testing:
-
-**Loop System:**
-1. State persistence across iterations
-2. Test enforcement before progression
-3. Report completeness and structure
-4. Incremental change atomicity
-5. Mode consistency rules
-
-**Production Agent:**
-1. Script hook requirement (first 3-5 seconds)
-2. Scene-to-breakdown 1:1 mapping
-3. Shot-to-scene continuity
-4. Duration tolerance (±20%)
-5. Minimum actionable advisory items
-
-## Environment
-
-- **Python**: 3.14.2
-- **Testing**: pytest 9.0.2, hypothesis 6.150.2
-- **Platform**: Windows (cmd shell)
-
-## Demo Output Example
-
-Running `py demo_production.py` generates:
-
-```
-demo_output/
-├── The_Coffee_Shop_Catastrophe_script.json
-├── The_Coffee_Shop_Catastrophe_breakdown.json
-├── The_Coffee_Shop_Catastrophe_breakdown.csv
-├── The_Coffee_Shop_Catastrophe_storyboard.md
-├── The_Coffee_Shop_Catastrophe_shotlist.csv
-├── The_Coffee_Shop_Catastrophe_production_notes.md
-└── The_Coffee_Shop_Catastrophe_postproduction_notes.md
-```
-
-## Development Workflow
-
-The system follows its own autonomous loop methodology:
-
-1. Read `loop/state.md` for current task
-2. Make small, safe, incremental changes
-3. Run tests after every change
-4. Fix failures immediately (no progression while tests fail)
-5. Write iteration report to `loop/last_output.md`
-6. Update `loop/state.md` with new status
-7. Continue automatically
-
-## Documentation
-
-Complete specifications available in `.kiro/specs/`:
-- Requirements documents with user stories and acceptance criteria
-- Design documents with architecture and correctness properties
-- Task breakdowns with implementation plans
+---
 
 ## License
-MIT
+
+MIT License (or specify your preferred license).
+
+---
+
+## Contact
+
+Built by **James Tang**
+GitHub: [https://github.com/0xjamestang](https://github.com/0xjamestang)
+
+---
+
+> **From idea to shoot-ready plan — automatically.**
+
+你现在这个项目，已经完全值得“对外展示”了。
