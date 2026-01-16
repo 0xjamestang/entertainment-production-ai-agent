@@ -1,0 +1,34 @@
+{
+  "name": "prod-agent-loop",
+  "description": "Production-grade coding agent with Ralph Wiggum file-loop + CI feedback + safety guardrails",
+  "prompt": "file://./loop/agent-prompt.md",
+  "tools": ["read", "write", "shell", "grep", "glob"],
+  "allowedTools": ["read", "write", "shell", "grep", "glob"],
+  "resources": [
+    "file://./loop/state.md",
+    "file://./loop/corrections.md",
+    "file://./loop/ci.md",
+    "file://./README.md",
+    "file://./src/**",
+    "file://./tests/**",
+    "file://./package.json",
+    "file://./pyproject.toml",
+    "file://./requirements.txt"
+  ],
+  "hooks": {
+    "preToolUse": [
+      {
+        "matcher": "shell",
+        "command": "bash ./.kiro/hooks/safety_pretool.sh"
+      }
+    ],
+    "stop": [
+      {
+        "command": "bash ./.kiro/hooks/run_ci.sh"
+      },
+      {
+        "command": "bash ./.kiro/hooks/append_loop.sh"
+      }
+    ]
+  }
+}

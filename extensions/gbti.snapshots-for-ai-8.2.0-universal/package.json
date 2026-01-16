@@ -1,0 +1,101 @@
+{
+	"name": "snapshots-for-ai",
+	"displayName": "Snapshots for AI",
+	"description": "Create markdown snapshots of your code for AI interactions",
+	"version": "8.2.0",
+	"publisher": "GBTI",
+	"icon": "resources/camera.png",
+	"homepage": "https://gbti.network/products/vscode-snapshots-for-ai/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gbti-network/vscode-snapshots-for-ai"
+	},
+	"bugs": {
+		"url": "https://github.com/gbti-network/vscode-snapshots-for-ai/issues"
+	},
+	"galleryBanner": {
+		"color": "#232323",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"categories": [
+		"Other",
+		"Snippets",
+		"Formatters",
+		"Debuggers",
+		"Machine Learning",
+		"AI",
+		"Chat"
+	],
+	"keywords": [
+		"snapshot",
+		"markdown",
+		"ai",
+		"gpt",
+		"claude",
+		"grok",
+		"llama",
+		"llm",
+		"rag",
+		"context-retrieval"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "snapshots-for-ai.createSnapshot",
+				"title": "Create Snapshot",
+				"icon": {
+					"light": "resources/light/camera.png",
+					"dark": "resources/dark/camera.png"
+				}
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "snapshots-for-ai.createSnapshot",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js",
+		"deploy": "ts-node -P scripts/tsconfig.json scripts/deploy.ts patch",
+		"deploy:patch": "ts-node -P scripts/tsconfig.json scripts/deploy.ts patch",
+		"deploy:minor": "ts-node -P scripts/tsconfig.json scripts/deploy.ts minor",
+		"deploy:major": "ts-node -P scripts/tsconfig.json scripts/deploy.ts major"
+	},
+	"devDependencies": {
+		"@octokit/rest": "^21.0.2",
+		"@types/node": "20.10.4",
+		"@types/vscode": "^1.85.0",
+		"@typescript-eslint/eslint-plugin": "^6.13.2",
+		"@typescript-eslint/parser": "^6.13.2",
+		"@vscode/test-electron": "^2.3.8",
+		"@vscode/vsce": "^2.22.0",
+		"dotenv": "^16.4.7",
+		"eslint": "^8.55.0",
+		"node-fetch": "^2.7.0",
+		"ovsx": "^0.10.1",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.3.3"
+	},
+	"license": "GPL-3.0",
+	"__metadata": {
+		"installedTimestamp": 1768584892990,
+		"targetPlatform": "universal",
+		"size": 2945154
+	}
+}
