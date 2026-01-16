@@ -188,5 +188,3 @@ GitHub: [https://github.com/0xjamestang](https://github.com/0xjamestang)
 ---
 
 > **From idea to shoot-ready plan — automatically.**
-
-你现在这个项目，已经完全值得“对外展示”了。
