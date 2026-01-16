@@ -176,7 +176,7 @@ python run_loop.py
 
 ## License
 
-MIT License (or specify your preferred license).
+MIT.
 
 ---
 
